@@ -12,14 +12,35 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
+    @IBOutlet weak var p1NameLabel: UILabel!
+    @IBOutlet weak var p2NameLabel: UILabel!
+    
+    
+    @IBOutlet weak var p1PointsLabel: UILabel!
+    @IBOutlet weak var p2PointsLabel: UILabel!
+    
+    @IBOutlet weak var p1GamesLabel: UILabel!
+    @IBOutlet weak var p2GamesLabel: UILabel!
+    
+    @IBOutlet weak var p1SetsLabel: UILabel!
+    @IBOutlet weak var p2SetsLabel: UILabel!
+    
+    @IBOutlet weak var p1PreviousSetsLabel: UILabel!
+    @IBOutlet weak var p2PreviousSetsLabel: UILabel!
+    
+    
+    @IBAction func p1AddPointPressed(sender: UIButton) {
+    }
 
+    @IBAction func p2AddPointPressed(sender: UIButton) {
+    }
 }
 

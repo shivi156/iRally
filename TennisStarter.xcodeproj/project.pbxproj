@@ -13,6 +13,9 @@
 		BBA6F8E21B26E78E006642BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA6F8E11B26E78E006642BC /* Images.xcassets */; };
 		BBA6F8E51B26E78E006642BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA6F8E31B26E78E006642BC /* LaunchScreen.xib */; };
 		BBA6F8F11B26E78E006642BC /* TennisStarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8F01B26E78E006642BC /* TennisStarterTests.swift */; };
+		BBA6F8FB1B26E81E006642BC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FA1B26E81E006642BC /* Game.swift */; };
+		BBA6F8FD1B26E86B006642BC /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FC1B26E86B006642BC /* GameTests.swift */; };
+		BBA6F8FF1B26E90A006642BC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FA1B26E81E006642BC /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 		BBA6F8EA1B26E78E006642BC /* TennisStarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisStarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA6F8EF1B26E78E006642BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA6F8F01B26E78E006642BC /* TennisStarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisStarterTests.swift; sourceTree = "<group>"; };
+		BBA6F8FA1B26E81E006642BC /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		BBA6F8FC1B26E86B006642BC /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 				BBA6F8E11B26E78E006642BC /* Images.xcassets */,
 				BBA6F8E31B26E78E006642BC /* LaunchScreen.xib */,
 				BBA6F8D81B26E78D006642BC /* Supporting Files */,
+				BBA6F8FA1B26E81E006642BC /* Game.swift */,
 			);
 			path = TennisStarter;
 			sourceTree = "<group>";
@@ -100,6 +106,7 @@
 			children = (
 				BBA6F8F01B26E78E006642BC /* TennisStarterTests.swift */,
 				BBA6F8EE1B26E78E006642BC /* Supporting Files */,
+				BBA6F8FC1B26E86B006642BC /* GameTests.swift */,
 			);
 			path = TennisStarterTests;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA6F8DD1B26E78E006642BC /* ViewController.swift in Sources */,
+				BBA6F8FB1B26E81E006642BC /* Game.swift in Sources */,
 				BBA6F8DB1B26E78E006642BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA6F8F11B26E78E006642BC /* TennisStarterTests.swift in Sources */,
+				BBA6F8FF1B26E90A006642BC /* Game.swift in Sources */,
+				BBA6F8FD1B26E86B006642BC /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
