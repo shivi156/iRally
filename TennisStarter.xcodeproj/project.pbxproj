@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		496B3CDE1CE0BAA80090A701 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FA1B26E81E006642BC /* Game.swift */; };
+		49F4A80A1FFD3676004C17A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA6F8DE1B26E78E006642BC /* Main.storyboard */; };
+		49F4A80B1FFD36F6004C17A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8DC1B26E78E006642BC /* ViewController.swift */; };
+		49F7F39A208622C100B49CC3 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 49F7F399208622C100B49CC3 /* Sound.wav */; };
 		BBA6F8DB1B26E78E006642BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8DA1B26E78E006642BC /* AppDelegate.swift */; };
 		BBA6F8DD1B26E78E006642BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8DC1B26E78E006642BC /* ViewController.swift */; };
 		BBA6F8E01B26E78E006642BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA6F8DE1B26E78E006642BC /* Main.storyboard */; };
 		BBA6F8E21B26E78E006642BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA6F8E11B26E78E006642BC /* Images.xcassets */; };
 		BBA6F8E51B26E78E006642BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA6F8E31B26E78E006642BC /* LaunchScreen.xib */; };
-		BBA6F8F11B26E78E006642BC /* TennisStarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8F01B26E78E006642BC /* TennisStarterTests.swift */; };
 		BBA6F8FB1B26E81E006642BC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FA1B26E81E006642BC /* Game.swift */; };
 		BBA6F8FD1B26E86B006642BC /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FC1B26E86B006642BC /* GameTests.swift */; };
-		BBA6F8FF1B26E90A006642BC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FA1B26E81E006642BC /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49F7F399208622C100B49CC3 /* Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sound.wav; sourceTree = "<group>"; };
 		BBA6F8D51B26E78D006642BC /* TennisStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA6F8D91B26E78D006642BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA6F8DA1B26E78E006642BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +41,6 @@
 		BBA6F8E41B26E78E006642BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BBA6F8EA1B26E78E006642BC /* TennisStarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisStarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA6F8EF1B26E78E006642BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBA6F8F01B26E78E006642BC /* TennisStarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisStarterTests.swift; sourceTree = "<group>"; };
 		BBA6F8FA1B26E81E006642BC /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BBA6F8FC1B26E86B006642BC /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 		BBA6F8D81B26E78D006642BC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49F7F399208622C100B49CC3 /* Sound.wav */,
 				BBA6F8D91B26E78D006642BC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -104,7 +107,6 @@
 		BBA6F8ED1B26E78E006642BC /* TennisStarterTests */ = {
 			isa = PBXGroup;
 			children = (
-				BBA6F8F01B26E78E006642BC /* TennisStarterTests.swift */,
 				BBA6F8EE1B26E78E006642BC /* Supporting Files */,
 				BBA6F8FC1B26E86B006642BC /* GameTests.swift */,
 			);
@@ -163,21 +165,26 @@
 		BBA6F8CD1B26E78D006642BC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "University of Chester";
 				TargetAttributes = {
 					BBA6F8D41B26E78D006642BC = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = FH8M85Z3U4;
+						LastSwiftMigration = 1020;
 					};
 					BBA6F8E91B26E78E006642BC = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = MUJAAJUB5Z;
+						LastSwiftMigration = 1020;
 						TestTargetID = BBA6F8D41B26E78D006642BC;
 					};
 				};
 			};
 			buildConfigurationList = BBA6F8D01B26E78D006642BC /* Build configuration list for PBXProject "TennisStarter" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -201,6 +208,7 @@
 			files = (
 				BBA6F8E01B26E78E006642BC /* Main.storyboard in Resources */,
 				BBA6F8E51B26E78E006642BC /* LaunchScreen.xib in Resources */,
+				49F7F39A208622C100B49CC3 /* Sound.wav in Resources */,
 				BBA6F8E21B26E78E006642BC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F4A80A1FFD3676004C17A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA6F8F11B26E78E006642BC /* TennisStarterTests.swift in Sources */,
-				BBA6F8FF1B26E90A006642BC /* Game.swift in Sources */,
+				49F4A80B1FFD36F6004C17A9 /* ViewController.swift in Sources */,
+				496B3CDE1CE0BAA80090A701 /* Game.swift in Sources */,
 				BBA6F8FD1B26E86B006642BC /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,24 +278,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -299,11 +322,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -311,17 +335,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -329,15 +365,18 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -346,9 +385,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FH8M85Z3U4;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = TennisStarter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.chester.TennisStarterSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -356,9 +399,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FH8M85Z3U4;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = TennisStarter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.chester.TennisStarterSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -366,17 +413,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = MUJAAJUB5Z;
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = TennisStarterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.chester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisStarter.app/TennisStarter";
 			};
 			name = Debug;
@@ -385,13 +432,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = MUJAAJUB5Z;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = TennisStarterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.chester.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisStarter.app/TennisStarter";
 			};
 			name = Release;
@@ -415,6 +462,7 @@
 				BBA6F8F61B26E78E006642BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBA6F8F71B26E78E006642BC /* Build configuration list for PBXNativeTarget "TennisStarterTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +471,7 @@
 				BBA6F8F91B26E78E006642BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

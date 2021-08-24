@@ -1,24 +1,26 @@
-//
-//  GameTests.swift
-//  TennisStarter
-//
-//  Created by Andrew Muncey on 09/06/2015.
-//  Copyright (c) 2015 University of Chester. All rights reserved.
-//
-
 import XCTest
 
 class GameTests: XCTestCase {
     
     var game: Game!
+    var mirror: Mirror!
     
     override func setUp() {
         super.setUp()
         game = Game()
+        mirror = Mirror(reflecting: game!)
     }
     
     override func tearDown() {
         super.tearDown()
+    }
+    
+    func testMaxTwoInstanceVariables(){
+        XCTAssertLessThanOrEqual(mirror.children.count, 2)
+    }
+    
+    func testNotASubclass(){
+        XCTAssertNil(mirror.superclassMirror)
     }
     
     func getToDeuce(){
@@ -31,6 +33,8 @@ class GameTests: XCTestCase {
         game.addPointToPlayer2() //40 - 30
         game.addPointToPlayer2() //40 - 40
     }
+    
+    
     
     func testZeroPoints(){
         XCTAssertEqual(game.player1Score(), "0", "P1 score correct with 0 points")
@@ -72,17 +76,26 @@ class GameTests: XCTestCase {
     }
     
     func testSimpleWinP1(){
-        for i in 0...3{
+        for _ in 0...3{
             game.addPointToPlayer1()
         }
         XCTAssertTrue(game.player1Won(), "P1 win after 4 consecutive points")
     }
     
     func testSimpleWinP2(){
-        for i in 0...3{
+        for _ in 0...3{
             game.addPointToPlayer2()
         }
         XCTAssertTrue(game.player2Won(), "P2 win after 4 consecutive points")
+    }
+    
+    func testReachingDeuce(){
+        getToDeuce()
+        XCTAssertEqual(game.player1Score(),"40","P1 score correct reaching Deuce")
+        XCTAssertEqual(game.player2Score(),"40","P1 score correct reaching Deuce")
+        XCTAssertFalse(game.player1Won())
+        XCTAssertFalse(game.player2Won())
+        XCTAssertFalse(game.complete())
     }
     
     func testAdvP1Advantage() {
@@ -115,7 +128,7 @@ class GameTests: XCTestCase {
     
     func testMultipleAdvantages(){
         getToDeuce()
-        for i in 0...1023{
+        for _ in 0...1023{
             game.addPointToPlayer1()
             game.addPointToPlayer2()
             game.addPointToPlayer2()
@@ -126,17 +139,17 @@ class GameTests: XCTestCase {
     }
     
     func testGameCompleteP1Win(){
-        for i in 0...3{
+        for _ in 0...3{
             game.addPointToPlayer1()
         }
-        XCTAssertTrue(game.gameComplete(), "Game complete with P1 win")
+        XCTAssertTrue(game.complete(), "Game complete with P1 win")
     }
     
     func testGameCompleteP2Win(){
-        for i in 0...3{
+        for _ in 0...3{
             game.addPointToPlayer2()
         }
-        XCTAssertTrue(game.gameComplete(), "Game complete with P1 win")
+        XCTAssertTrue(game.complete(), "Game complete with P1 win")
     }
     
     func testNoGamePointsP1() {
@@ -151,11 +164,11 @@ class GameTests: XCTestCase {
     
     func testGamePointsP1() {
         
-        for i in 0...2{
+        for _ in 0...2{
             game.addPointToPlayer1()
         }
         XCTAssertEqual(game.gamePointsForPlayer1(), 3, "P1 has 3 game points at 40-0")
-
+        
         game.addPointToPlayer2()
         XCTAssertEqual(game.gamePointsForPlayer1(), 2, "P1 has 2 game points at 40-15")
         
@@ -179,9 +192,11 @@ class GameTests: XCTestCase {
         
     }
     
+    
+    
     func testGamePointsP2() {
         
-        for i in 0...2{
+        for _ in 0...2{
             game.addPointToPlayer2()
         }
         XCTAssertEqual(game.gamePointsForPlayer2(), 3, "P2 has 3 game points at 0-40")
@@ -197,6 +212,24 @@ class GameTests: XCTestCase {
         
         game.addPointToPlayer2()
         XCTAssertEqual(game.gamePointsForPlayer2(), 1, "P2 has 1 game point at 40-A")
+    }
+    
+    
+    func testMethodsNoSideEffects(){
+        game.addPointToPlayer1()
+        game.addPointToPlayer1()
+        _ = game.complete()
+        _ = game.player1Won()
+        _ = game.player2Won()
+        _ = game.gamePointsForPlayer1()
+        _ = game.gamePointsForPlayer2()
+        game.addPointToPlayer1()
+        XCTAssertEqual(game.player1Score(), "40")
+        game.addPointToPlayer1()
+        _ = game.complete()
+        _ = game.player1Won()
+        XCTAssertTrue(game.player1Won())
+        XCTAssertTrue(game.complete())
     }
     
 }
