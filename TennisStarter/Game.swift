@@ -6,59 +6,68 @@ class Game {
     /**
      This method will be called when player 1 wins a point and update the state of the instance of Game to reflect the change
      */
+    
     func addPointToPlayer1(){
-        // This makes both their scores at least 40.
-        if player1Points >= 3 && player2Points >= 3 {
-            // They both have the same points (40), player 1 scores -> gets advantage
-            if player1Points == player2Points {
+        if complete() { return }
+        else {
+            // This makes both their scores at least 40.
+            if player1Points >= 3 && player2Points >= 3 {
+                // They both have the same points (40), player 1 scores -> gets advantage
+                if player1Points == player2Points {
+                    player1Points += 1
+                }
+                // if player 2 is ahead meaning advantage and player 1 scores -> 40 - 40
+                else if player2Points > player1Points {
+                    player2Points -= 1
+                    
+                }
+                else {
+                    player1Points += 1
+                }
+                
+            } else {
                 player1Points += 1
             }
-            // if player 2 is ahead meaning advantage and player 1 scores -> 40 - 40
-            else if player2Points > player1Points {
-                player2Points -= 1
-            }
-            else {
-                player1Points += 1
-            }
-            
-        } else {
-            player1Points += 1
         }
     }
-    
     
     /**
      This method will be called when player 2 wins a point
      */
     func addPointToPlayer2(){
-        if player1Points >= 3 && player2Points >= 3 {
-            // deuce
-            if player1Points == player2Points {
+        if complete() { return }
+        else {
+            if player1Points >= 3 && player2Points >= 3 {
+                // deuce
+                if player1Points == player2Points {
+                    player2Points += 1
+                }
+                else if player1Points > player2Points {
+                    player1Points -= 1
+                }
+                else {
+                    player2Points += 1
+                }
+            } else {
                 player2Points += 1
             }
-            else if player1Points > player2Points {
-                player1Points -= 1
-            }
-            else {
-                player2Points += 1
-            }
-        } else {
-            player2Points += 1
         }
     }
+
 
     /**
      Returns the score for player 1, this will only ever be "0","15","30","40" or "A"
      If the game is complete, this should return an empty string
      */
     func player1Score() -> String {
+        let tennisScores = ["0", "15", "30", "40"]
         if complete() {
             return ""
         }
-        else if (player1Points >= 4) && ((player1Points - player2Points) <= 2) {
+        else if (player1Points >= 4) && ((player1Points - player2Points) == 1) {
             return "A"
         }
-        return ["0", "15", "30", "40"][min(player1Points, 3)]
+        return tennisScores[min(player1Points, 3)]
     }
 
     /**
@@ -66,19 +75,20 @@ class Game {
      If the game is complete, this should return an empty string
      */
     func player2Score() -> String {
+        let tennisScores = ["0", "15", "30", "40"]
         if complete() {
             return ""
         }
-        else if (player2Points >= 4) && ((player2Points - player1Points) <= 2) {
+        else if (player2Points >= 4) && ((player2Points - player1Points) == 1) {
             return "A"
         }
-        return ["0", "15", "30", "40"][min(player2Points, 3)]
+        return tennisScores[min(player2Points, 3)]
     }
 
     /**
      Returns true if player 1 has won the game, false otherwise
      */
-    func player1Won() -> Bool{
+    func player1Won() -> Bool {
         if (player1Points >= 4) && ((player1Points - player2Points) >= 2) {
             return true
         }
@@ -88,7 +98,7 @@ class Game {
     /**
      Returns true if player 2 has won the game, false otherwise
      */
-    func player2Won() -> Bool{
+    func player2Won() -> Bool {
         if (player2Points >= 4) && ((player2Points - player1Points) >= 2) {
             return true
         }
@@ -98,7 +108,7 @@ class Game {
     /**
      Returns true if the game is finished, false otherwise
      */
-    func complete() ->Bool {
+    func complete() -> Bool {
         if player1Won() || player2Won() {
             return true
         }
@@ -127,4 +137,11 @@ class Game {
         
     }
     
+    func getPlayer1Points() -> Int {
+        return player1Points
+    }
+    
+    func getPlayer2Points() -> Int {
+        return player2Points
+    }
 }
