@@ -38,12 +38,7 @@ class ViewController: UIViewController {
     private var totalGamesPlayed = 0
     private var tiebreakPointCount = 0
 
-    
-    
-    
-    
-    
-    
+
     /********Methods*********/
     @IBAction func p1AddPointPressed(_ sender: UIButton) {
         
@@ -95,21 +90,16 @@ class ViewController: UIViewController {
         checkMatchCompletion()
     }
     
-    func playServerChangeSound() {
-        guard let url = Bundle.main.url(forResource: "sound", withExtension: "wav") else {
-            print("⚠️ sound.wav not found")
-            return
-        }
-
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
-        } catch {
-            print("⚠️ Could not play sound: \(error.localizedDescription)")
+    func playSound() {
+        if let soundURL = Bundle.main.url(forResource: "Sound", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.play()
+            } catch {
+                print("Error playing sound: \(error.localizedDescription)")
+            }
         }
     }
-
     
     func updateTiebreakServer() {
         if tiebreakPointCount == 1 {
@@ -129,10 +119,10 @@ class ViewController: UIViewController {
         p2NameLabel.textColor = .label
 
         if isPlayer1Serving {
-            playServerChangeSound()
+            playSound()
             p1NameLabel.textColor = .purple
         } else {
-            playServerChangeSound()
+            playSound()
             p2NameLabel.textColor = .purple
         }
         
@@ -147,7 +137,6 @@ class ViewController: UIViewController {
     
     func toggleServer() {
         isPlayer1Serving.toggle()
-        playServerChangeSound()
     }
 
 
