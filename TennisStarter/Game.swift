@@ -1,4 +1,4 @@
-class Game {
+class Game: GameProtocol {
 
     private var player1Points: Int = 0
     private var player2Points: Int = 0

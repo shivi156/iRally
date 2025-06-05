@@ -24,7 +24,8 @@ class MatchManager {
             tiebreak.addPointToPlayer1()
             tiebreakPointCount += 1
             updateTiebreakServer()
-        } else {
+        }
+        else {
             game.addPointToPlayer1()
         }
         checkGameCompletion()
@@ -49,6 +50,21 @@ class MatchManager {
         }
     }
     
+    private func isFinalSet() -> Bool {
+        return player1SetsWon + player2SetsWon == 4
+    }
+
+    private func shouldPlayTiebreak() -> Bool {
+        let p1Games = set.getPlayer1GamesWon()
+        let p2Games = set.getPlayer2GamesWon()
+        
+        if isFinalSet() {
+            return p1Games == 12 && p2Games == 12
+        } else {
+            return p1Games == 6 && p2Games == 6
+        }
+    }
+    
     private func handleGameCompletion() {
         
         if game.player1Won() {
@@ -65,8 +81,18 @@ class MatchManager {
         
         if set.complete() {
             handleSetCompletion()
+        } else if shouldPlayTiebreak() {
+            // Only start tiebreak if conditions are met
+            startTiebreak()
         }
     }
+    
+    private func startTiebreak() {
+        tiebreak = Tiebreak()
+        tiebreakPointCount = 0
+        updateTiebreakServer()
+    }
+
     
     private func handleTiebreakCompletion() {
         guard tiebreak.complete() else { return }
@@ -79,79 +105,77 @@ class MatchManager {
         if tiebreak.player1Won() {
             set.addGameToPlayer1()
             player1GamesWon += 1
-            match.addSetToPlayer1()  // Add the set win to the match after tiebreak
+            match.addSetToPlayer1()
             player1SetsWon += 1
         } else {
             set.addGameToPlayer2()
             player2GamesWon += 1
-            match.addSetToPlayer2()  // Add the set win to the match after tiebreak
+            match.addSetToPlayer2()
             player2SetsWon += 1
         }
         
-        // Now, check if the set is complete after the tiebreak
+
         if set.complete() {
-            handleSetCompletion() // Call to handle any further actions after the set completion
+            handleSetCompletion()
         } else {
-            // If somehow set is not complete (shouldn't happen for tiebreak), just proceed
+            
             toggleServer()
             totalGamesPlayed += 1
         }
 
-        // Reset for next potential tiebreak
         tiebreak = Tiebreak()
         set = Set()
         game = Game()
         tiebreakPointCount = 0
     }
-
+    
     private func handleSetCompletion() {
         let currentSetScore = (set.getPlayer1GamesWon(), set.getPlayer2GamesWon())
         allPreviousSetScores.append(currentSetScore)
         
-        if player1SetsWon == 3 || player2SetsWon == 3 {
-            return
-        }
-        
-        let isFinalSet = player1SetsWon == 2 && player2SetsWon == 2
-        
+        let isFinalSet = (player1SetsWon + player2SetsWon == 4)
         
         if isFinalSet {
-            // If the score reaches 12-12, start a tie-break
-            if set.getPlayer1GamesWon() == 12 && set.getPlayer2GamesWon() == 12 {
-                startTiebreakInFinalSet()
-            } else if abs(set.getPlayer1GamesWon() - set.getPlayer2GamesWon()) >= 2 {
-                // Final set: player must win by 2 clear games (e.g., 7-5, 8-6)
-                if set.player1WonSet() {
-                    match.addSetToPlayer1()
-                    player1SetsWon += 1
-                } else {
-                    match.addSetToPlayer2()
-                    player2SetsWon += 1
-                }
+            // In the final set, start tiebreak at 12-12
+            if currentSetScore.0 == 12 && currentSetScore.1 == 12 {
+                startTiebreak()
+            } else {
+                awardSetToWinner()
             }
         } else {
-            if set.player1WonSet() {
-                match.addSetToPlayer1()
-                player1SetsWon += 1
+            // In regular sets, start tiebreak at 6-6
+            if currentSetScore.0 == 6 && currentSetScore.1 == 6 {
+                startTiebreak()
             } else {
-                match.addSetToPlayer2()
-                player2SetsWon += 1
+                awardSetToWinner()
             }
-            
         }
         
-
-        
-        // Reset for new set
+        // reset for the next set
+        if !match.matchComplete() {
+            resetForNewSet()
+        }
+    }
+    
+    private func awardSetToWinner() {
+        if set.player1WonSet() {
+            match.addSetToPlayer1()
+            player1SetsWon += 1
+        } else {
+            match.addSetToPlayer2()
+            player2SetsWon += 1
+        }
+    }
+    
+    private func resetForNewSet() {
         set = Set()
         player1GamesWon = 0
         player2GamesWon = 0
         game = Game()
-        isPlayer1Serving = !isPlayer1Serving // Alternate serve for new set
+        isPlayer1Serving = !isPlayer1Serving
     }
     
     private func startTiebreakInFinalSet() {
-        
         tiebreak = Tiebreak()
         tiebreakPointCount = 0
         updateTiebreakServer()
@@ -161,9 +185,6 @@ class MatchManager {
         return allPreviousSetScores
     }
     
-
-    
-    // MARK: - Helper Methods
     private func toggleServer() {
         isPlayer1Serving.toggle()
         playSound()
@@ -177,6 +198,7 @@ class MatchManager {
         }
     }
     
+    // code adapted from Nelson, 2024
     private func playSound() {
         if let soundURL = Bundle.main.url(forResource: "Sound", withExtension: "wav") {
             do {
@@ -187,6 +209,7 @@ class MatchManager {
             }
         }
     }
+    // end of adapted code
 
     func resetMatch() {
         game = Game()
@@ -203,8 +226,7 @@ class MatchManager {
         totalGamesPlayed = 0
         tiebreakPointCount = 0
     }
-    
-    // MARK: - State Checks
+
     func isMatchComplete() -> Bool {
         return match.matchComplete()
     }
@@ -216,5 +238,4 @@ class MatchManager {
     func isPlayer1CurrentlyServing() -> Bool {
         return isPlayer1Serving
     }
-    
 }
